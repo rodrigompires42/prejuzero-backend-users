@@ -1,0 +1,12 @@
+version: "3.10"
+name: "users"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "uvicorn app.main:app --host 0.0.0.0 --port 80"
+    ports:
+      - 8001:80
+    volumes:
+      - .:/app
