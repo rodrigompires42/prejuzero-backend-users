@@ -19,4 +19,15 @@ async def root():
 
 @app.get("/users/{user_id}")
 def read_user(user_id: int):
-    return {"user_id": user_id}
+    USERS = [
+        {
+            "id": 1,
+            "name": "Rodrigo"
+        },
+        {
+            "id": 2,
+            "name": "Kaio"
+        },
+    ]
+    user = next(user for user in USERS if user["id"] == user_id)
+    return {"user_id": user_id, "user_name": user["name"]}
