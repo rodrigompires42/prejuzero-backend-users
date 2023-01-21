@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime
+from sqlalchemy import Column, DateTime, Float, Integer, String
 from sqlalchemy.sql import func
 
 from app.database import Base
@@ -10,6 +10,7 @@ class User(Base):
     email = Column(String, unique=True)
     password = Column(String, nullable=False)
     name = Column(String, nullable=False)
+    phone = Column(String, nullable=True)
     balance = Column(Float, default=0)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
