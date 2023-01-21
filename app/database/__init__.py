@@ -2,10 +2,9 @@
 """Database module"""
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import scoped_session, sessionmaker
 
 from app.config import DB_URL
-
 
 engine = create_engine(DB_URL, pool_recycle=10, pool_size=25, max_overflow=15)
 
