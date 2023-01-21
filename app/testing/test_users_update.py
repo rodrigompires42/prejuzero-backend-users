@@ -1,6 +1,6 @@
-from . import client
-
 import json
+
+from . import client
 
 
 def test_update_user_not_found():
