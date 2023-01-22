@@ -25,7 +25,8 @@ def create(request: schemas.User, db: Session):
         email=request.email,
         password=Hash.bcrypt(request.password),
         name=request.name,
-        phone=request.phone
+        phone=request.phone,
+        region=request.region
     )
     db.add(new_user)
     db.commit()
@@ -53,7 +54,8 @@ def update(id: int, request: schemas.UserUpdate, db: Session):
         "email":user.first().to_dict()["email"],
         "password":user.first().to_dict()["password"],
         "name":request.name,
-        "phone":request.phone
+        "phone":request.phone,
+        "region":request.region
     }
 
     user.update(updated_user_dict)

@@ -13,7 +13,7 @@ router = APIRouter(
 )
 
 
-@router.get("/", response_model=List[schemas.User], status_code=status.HTTP_200_OK)
+@router.get("/", response_model=List[schemas.UserShow], status_code=status.HTTP_200_OK)
 def get_all_users(db: Session = Depends(get_db)):
     return user_controller.get_all(db)
 
@@ -30,7 +30,7 @@ def delete_user(id: int, db: Session = Depends(get_db)):
     user_controller.delete(id, db)
 
 
-@router.get("/{id}", response_model=schemas.User, status_code=status.HTTP_200_OK)
+@router.get("/{id}", response_model=schemas.UserShow, status_code=status.HTTP_200_OK)
 def get_user(id: int, db: Session = Depends(get_db)):
     return user_controller.show(id, db)
 

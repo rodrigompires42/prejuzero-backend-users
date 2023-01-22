@@ -11,7 +11,8 @@ def test_create_user():
         "name": "Test User",
         "email": f"{random_email}@email.com",
         "password": "password",
-        "phone": "1191289237"
+        "phone": "1191289237",
+        "region": "Test"
     }
     response = client.post("/api/v1/users", content=json.dumps(new_user))
     assert response.status_code == 202
@@ -32,7 +33,8 @@ def test_create_user_email_already_in_use():
         "name": "Test User",
         "email": "test@email.com",
         "password": "password",
-        "phone": "1191289237"
+        "phone": "1191289237",
+        "region": "Test"
     }
     response = client.post("/api/v1/users", content=json.dumps(new_user))
     assert response.status_code == 409

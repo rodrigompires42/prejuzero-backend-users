@@ -7,7 +7,8 @@ def test_update_user_not_found():
     user_id = 999999999
     content = {
         "name": "new name",
-        "phone": "11"
+        "phone": "11",
+        "region": "Test"
     }
     response = client.put(f"/api/v1/users/{user_id}", content=json.dumps(content))
     assert response.status_code == 404

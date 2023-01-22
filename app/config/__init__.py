@@ -1,4 +1,5 @@
 import sys
+
 from dotenv import dotenv_values
 
 env_variables = dotenv_values(".env")

@@ -1,3 +1,3 @@
 """Pydantic schemas"""
 
-from app.schemas.user import User, UserUpdate
+from app.schemas.user import User, UserShow, UserUpdate

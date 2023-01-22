@@ -2,7 +2,7 @@ version: "3"
 name: "users"
 services:
   db:
-    container_name: database
+    container_name: users-database
     image: postgres
     restart: always
     environment:
@@ -23,19 +23,19 @@ services:
   #   depends_on:
   #     - db
 
-  # backend:
-  #   container_name: backend
-  #   platform: linux/amd64
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   command: bash -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 80"
-  #   ports:
-  #     - 8001:80
-  #   volumes:
-  #     - .:/app
-  #   depends_on:
-  #     - db
-  #   restart: always
+  backend:
+    container_name: users-backend
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 80"
+    ports:
+      - 8001:80
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    restart: always
   
   
